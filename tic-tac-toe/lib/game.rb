@@ -35,7 +35,6 @@ class Game
     else
       return 
     end
-    
   end
  
 end
