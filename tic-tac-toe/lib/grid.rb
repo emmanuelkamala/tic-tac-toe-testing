@@ -10,6 +10,7 @@ class Grid
     end
   end
   public
+
   def put_piece(index, piece)
     @x = (index / 3)
     @y = (index % 3)
@@ -22,6 +23,7 @@ class Grid
     
     @board[@x][@y] = piece
     @last_piece = piece
+
     true
   end
 
@@ -35,7 +37,6 @@ class Grid
     
     return false 
   end
-  
   def full?  
     for i in (0..2)
       for j in (0..2)

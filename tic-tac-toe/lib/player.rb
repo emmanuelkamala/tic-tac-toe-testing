@@ -6,3 +6,4 @@ class Player
     @symb = input.fetch(:symb)
   end
 end
+
