@@ -7,12 +7,12 @@ describe Game do
 
   context "#initialize" do
     it 'randomly selects player2' do
-      Array.any_instance.stub(:shuffle){ [player2, player1] }
+      allow_any_instance_of(Array).to receive(:shuffle) { [player2, player1] }
       game = Game.new( [player1, player2] )
       expect( game.current_player).to eq player2
     end
     it "randomly selects player1" do
-      Array.any_instance.stub(:shuffle){ [player1, player2] }
+      allow_any_instance_of(Array).to receive(:shuffle) { [player1, player2] }
       game = Game.new( [player1, player2] )
       expect( game.current_player).to eq player1
     end
@@ -34,16 +34,17 @@ describe Game do
 
   context "#get_move" do
     it "returns marked position" do
-      Array.any_instance.stub(:shuffle){ [player1, player2] }
+      allow_any_instance_of(Array).to receive(:shuffle) { [player1, player2] }
       game = Game.new( [player1, player2] )
       move= game.get_move(2, game.current_player_symb)
       expect( game.current_player_symb).to eq("x")
     end
   end
+
+
   context "#game_over?" do
- 
     it 'returns true' do
-      Array.any_instance.stub(:shuffle){ [player2, player1] }
+      allow_any_instance_of(Array).to receive(:shuffle) { [player2, player1] }
       grid=Grid.new
       players=[player1,player2]
       game = Game.new(players, grid)
