@@ -1,11 +1,14 @@
 require_relative "../lib/grid.rb"
+require_relative "../lib/game.rb"
 require_relative "spec_helper.rb"
 
 RSpec.describe Grid do
   subject { Grid.new }
+  let (:player1) { Player.new({name: "player1", symb: "x"})}
+  let (:player2) { Player.new({name: "player2", symb: "o"})}
 
   describe '#new' do
-    it 'works' do
+    it 'init' do
       result = Grid.new
       expect(result).not_to be_nil
     end
@@ -13,9 +16,13 @@ RSpec.describe Grid do
   describe '#put_piece' do
     it 'puts mark ' do
       grid = Grid.new
-      dbl=double("Put_piece", :index=>3, :symb =>'x')
-      result=grid.put_piece(dbl.index, dbl.symb)
-      expect(dbl.symb).to eq('x')
+      Array.any_instance.stub(:shuffle){ [player2, player1] }
+      game = Game.new( [player1, player2] )
+
+      dbl=double("Put_piece", :index=>3, :symb =>'o')
+      result1=grid.put_piece(dbl.index, dbl.symb)
+
+      expect(game.current_player_symb).to eq(dbl.symb)
     end
   end
   describe '#finished?' do
