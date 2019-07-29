@@ -40,10 +40,19 @@ describe Game do
       expect( game.current_player_symb).to eq("x")
     end
   end
-
-  
-
+  context "#game_over?" do
  
-
+    it 'returns true' do
+      Array.any_instance.stub(:shuffle){ [player2, player1] }
+      grid=Grid.new
+      players=[player1,player2]
+      game = Game.new(players, grid)
+      move1 = game.get_move(1, game.current_player_symb)
+      move2 = game.get_move(2, game.current_player_symb)
+      move3 = game.get_move(3, game.current_player_symb)
+      expect( game.game_over?).to eq(true)
+    end
+  end
+  
 
 end
