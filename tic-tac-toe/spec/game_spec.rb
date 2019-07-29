@@ -1,6 +1,6 @@
 require_relative "../lib/game.rb"
 require_relative "spec_helper.rb"
-
+require_relative "../lib/grid.rb"
 describe Game do
   let (:player1) { Player.new({name: "player1", symb: "x"})}
   let (:player2) { Player.new({name: "player2", symb: "o"})}
@@ -29,6 +29,15 @@ describe Game do
       current_player=game.current_player
       game.switch_turn
       expect(game.next_player).to eq current_player
+    end
+  end
+
+  context "#get_move" do
+    it "returns marked position" do
+      Array.any_instance.stub(:shuffle){ [player1, player2] }
+      game = Game.new( [player1, player2] )
+      move= game.get_move(2, game.current_player_symb)
+      expect( game.current_player_symb).to eq("x")
     end
   end
 
