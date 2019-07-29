@@ -41,14 +41,7 @@ describe Game do
     end
   end
   context "#game_over?" do
-  #   it "returns" do
-  #     grid=Grid.new
-  #     dbl=double('game_over')
-  #     allow(dbl).to receive(grid.finished?){true}
-      
-  #     game=Game.new([player1, player2])
-  #     expect(game.game_over?).to be true
-  #   end
+ 
     it 'returns true' do
       Array.any_instance.stub(:shuffle){ [player2, player1] }
       grid=Grid.new
