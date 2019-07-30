@@ -19,11 +19,11 @@ p2 = gets.chomp,"o"
 players=[@p1, @p2]
 
 @game = Game.new(players)
-@grid = Grid.new
+@grid =Grid.new
 
 until @game.game_over?
   @grid.render
-  name = @game.current_player_name
+  name=@game.current_player_name
   print "\n#{name}' turn. Enter number between 1 and 9: "
   until @grid.put_piece(move=(gets.chomp.to_i - 1), @game.current_player_symb)
     print "[Error] Invalid move, please move again: "
@@ -40,5 +40,6 @@ until @game.game_over?
 end
 @grid.render
 @game.switch_turn
+
 
 
