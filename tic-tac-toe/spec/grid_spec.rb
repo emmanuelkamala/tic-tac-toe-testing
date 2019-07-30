@@ -26,6 +26,7 @@ RSpec.describe Grid do
     end
   end
   describe '#finished?' do
+    # MAIN DIAGONAL MARK(X)
     it 'returns true if all marks on the main diagonal  are (X)s' do
       grid = Grid.new
       dbl1=double("Put_piece", :index=>1, :symb =>'x')
@@ -40,6 +41,23 @@ RSpec.describe Grid do
       result = grid.finished?
       expect(result).to be true
     end
+
+    it 'returns false if at least one of the marks on the main diagonal is (X)' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>1, :symb =>'x')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>5, :symb =>'o')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>9, :symb =>'o')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
+    end
+
+    # MAIN DIAGONAL MARK(O)
 
     it 'returns true if all marks on the main diagonal are (O)s' do
       grid = Grid.new
@@ -56,6 +74,23 @@ RSpec.describe Grid do
       expect(result).to be true
     end
 
+    it 'returns false if at least one of the marks on the main diagonal is (O)' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>1, :symb =>'x')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>5, :symb =>'o')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>9, :symb =>'x')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
+    end
+
+    # SECONDARY DIAGONAL MARK(X)
+
     it 'returns true if all marks on the secondary diagonal  are (X)s' do
       grid = Grid.new
       dbl1=double("Put_piece", :index=>3, :symb =>'x')
@@ -70,6 +105,23 @@ RSpec.describe Grid do
       result = grid.finished?
       expect(result).to be true
     end
+
+    it 'returns false if at least one of the marks on the secondary diagonal  is (O)' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>3, :symb =>'x')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>5, :symb =>'x')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>7, :symb =>'o')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
+    end
+
+    # SECONDARY DIAGONAL MARK(O)
 
     it 'returns true if all marks on the secondary diagonal are (O)s' do
       grid = Grid.new
@@ -86,6 +138,23 @@ RSpec.describe Grid do
       expect(result).to be true
     end
 
+    it 'returns false if not all marks on the secondary diagonal are (O)s' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>3, :symb =>'o')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>5, :symb =>'o')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>7, :symb =>'x')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
+    end
+
+    # TOP MARK(X)
+
     it 'returns true if all the top marks are (X)s' do
       grid = Grid.new
       dbl1=double("Put_piece", :index=>1, :symb =>'x')
@@ -100,6 +169,23 @@ RSpec.describe Grid do
       result = grid.finished?
       expect(result).to be true
     end
+
+    it 'returns false if at least one of the top marks is (x)' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>1, :symb =>'o')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>2, :symb =>'x')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>3, :symb =>'o')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
+    end
+
+    # TOP MARK(O)
     it 'returns true if all the top marks are (O)s' do
       grid = Grid.new
       dbl1=double("Put_piece", :index=>1, :symb =>'o')
@@ -114,6 +200,24 @@ RSpec.describe Grid do
       result = grid.finished?
       expect(result).to be true
     end
+
+    it 'returns false if at least one of the top marks is (o)s' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>1, :symb =>'x')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>2, :symb =>'x')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>3, :symb =>'x')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
+    end
+
+    # MIDDLE MARK (X)
+
     it 'returns true if all the middle marks are (X)s' do
       grid = Grid.new
       dbl1=double("Put_piece", :index=>4, :symb =>'x')
@@ -128,6 +232,24 @@ RSpec.describe Grid do
       result = grid.finished?
       expect(result).to be true
     end
+
+    it 'returns false if at least one of the middle marks is (O)' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>4, :symb =>'x')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>5, :symb =>'o')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>6, :symb =>'x')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
+    end
+
+    # MIDDLE MARK(O)
+
     it 'returns true if all the middle marks are (O)s' do
       grid = Grid.new
       dbl1=double("Put_piece", :index=>4, :symb =>'o')
@@ -142,6 +264,24 @@ RSpec.describe Grid do
       result = grid.finished?
       expect(result).to be true
     end
+
+    it 'returns false if not all the middle marks are (O)s' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>4, :symb =>'o')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>5, :symb =>'x')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>6, :symb =>'o')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
+    end
+
+    # BOTTOM MARK(X)
+
     it 'returns true if all the bottom marks are (X)s' do
       grid = Grid.new
       dbl1=double("Put_piece", :index=>7, :symb =>'x')
@@ -157,6 +297,23 @@ RSpec.describe Grid do
       expect(result).to be true
     end
 
+    it 'returns false if not all the bottom marks are (X)s' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>7, :symb =>'x')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>8, :symb =>'x')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>9, :symb =>'o')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
+    end
+
+    # BOTTOM MARK(O)
+
     it 'returns true if all the bottom marks are (O)s' do
       grid = Grid.new
       dbl1=double("Put_piece", :index=>7, :symb =>'o')
@@ -170,6 +327,21 @@ RSpec.describe Grid do
 
       result = grid.finished?
       expect(result).to be true
+    end
+
+    it 'returns false if not all the bottom marks are (O)s' do
+      grid = Grid.new
+      dbl1=double("Put_piece", :index=>7, :symb =>'o')
+      result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
+ 
+      dbl2=double("Put_piece", :index=>8, :symb =>'o')
+      result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
+ 
+      dbl3=double("Put_piece", :index=>9, :symb =>'x')
+      result3=grid.put_piece(dbl3.index.to_i - 1, dbl3.symb)
+ 
+      result = grid.finished?
+      expect(result).to be false
     end
   end
   describe '#full?' do

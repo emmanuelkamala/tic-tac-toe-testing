@@ -8,7 +8,7 @@ class Grid
         @board[i][j] = ' '
       end
     end
-  end
+  end  
   public
   def put_piece(index, piece)
     @x = (index / 3)
