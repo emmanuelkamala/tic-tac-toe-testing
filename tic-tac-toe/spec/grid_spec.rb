@@ -16,7 +16,7 @@ RSpec.describe Grid do
   describe '#put_piece' do
     it 'puts mark ' do
       grid = Grid.new
-      Array.any_instance.stub(:shuffle){ [player2, player1] }
+      allow_any_instance_of(Array).to receive(:shuffle) { [player2, player1] }
       game = Game.new( [player1, player2] )
 
       dbl=double("Put_piece", :index=>3, :symb =>'o')
@@ -206,7 +206,7 @@ RSpec.describe Grid do
       dbl1=double("Put_piece", :index=>1, :symb =>'x')
       result1=grid.put_piece(dbl1.index.to_i - 1, dbl1.symb)
  
-      dbl2=double("Put_piece", :index=>2, :symb =>'x')
+      dbl2=double("Put_piece", :index=>2, :symb =>'o')
       result2=grid.put_piece(dbl2.index.to_i - 1, dbl2.symb)
  
       dbl3=double("Put_piece", :index=>3, :symb =>'x')
