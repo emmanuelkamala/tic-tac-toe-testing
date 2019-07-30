@@ -3,7 +3,7 @@ require_relative "../lib/player.rb"
 RSpec.describe Player do
   describe "#wrong initialization" do
     it "raises an error when initialized with {}" do
-      expect {Player.new({}) }.to raise_error
+      expect {Player.new({})}.to raise_error(KeyError)
     end
     it "normal initialization" do
       input = { name: "NewName", symb: "x" }

@@ -1,14 +1,15 @@
 class Grid
-  EMPTY= ' '
+  
   def initialize
+    
     @board = Array.new(3) { |i| Array.new }
     for i in (0..2)
-        for j in (0..2)
-          @board[i][j] = ' '
-        end
+      for j in (0..2)
+        @board[i][j] = ' '
+      end
     end
   end
-
+  public
   def put_piece(index, piece)
     @x = (index / 3)
     @y = (index % 3)
@@ -20,7 +21,7 @@ class Grid
     end
     
     @board[@x][@y] = piece
-    @last_piece = piece;
+    @last_piece = piece
     true
   end
 
@@ -34,6 +35,7 @@ class Grid
     
     return false 
   end
+  
   def full?  
     for i in (0..2)
       for j in (0..2)
@@ -60,7 +62,7 @@ class Grid
     puts
   end
 
-  private
+  public
   def horizontals
     # check horizontals
     @board.each do |array|
