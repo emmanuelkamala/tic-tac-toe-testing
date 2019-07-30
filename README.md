@@ -1,5 +1,5 @@
 # Description
-This is the testing of one of the game object in the tic-tac-toe testing project. We have used RSpec unit testing framework.
+This project requires us to use a testing framework to test our code from the tic-tac-toe game project. We have included the original game files that we built, and also the testing folder that contains testing files for each methods used in each object created. To accomplish this, we have used RSpec unit testing framework.
 
 # Contributors
 <a href="http://github.com/emmanuelkamala">Emmanuel Kamala</a><br>
