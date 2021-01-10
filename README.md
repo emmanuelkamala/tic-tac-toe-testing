@@ -7,3 +7,13 @@ This project requires us to use a testing framework to test our code from the ti
 
 # Live Version
 <a href="https://repl.it/@EmmanuelKamala/tic-tac-toe-testing">Live Version</a>
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page](issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
